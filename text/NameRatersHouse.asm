@@ -18,7 +18,7 @@ _NameRatersHouseNameRaterWhichPokemonText::
 _NameRatersHouseNameRaterGiveItANiceNameText::
 	text "Der Spitzname ist"
 	line "@"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text ", oder?"
 	cont "Ein schöner Name!"
 
@@ -53,13 +53,13 @@ _NameRatersHouseNameRaterComeAnyTimeYouLikeText::
 	done
 
 _NameRatersHouseNameRaterATrulyImpeccableNameText::
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text "!"
 	line "Ein wirklich"
 	cont "tadelloser Name!"
 
 	para "Kümmere Dich gut"
 	line "um @"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text "!"
 	done

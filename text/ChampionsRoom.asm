@@ -115,7 +115,7 @@ _ChampionsRoomOakCongratulatesPlayerText::
 	line "dazugelernt, seit"
 	cont "Du Dich mit"
 	cont "@"
-	text_ram wcd6d
+	text_ram wNameBuffer
 
 	text " auf"
 	cont "den Weg gemacht"

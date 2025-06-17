@@ -15,7 +15,7 @@ _DaycareGentlemanWillLookAfterMonText::
 	text "OK, ich kümmere"
 	line "mich eine Weile"
 	cont "um @"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text "."
 	prompt
 
@@ -26,7 +26,7 @@ _DaycareGentlemanComeSeeMeInAWhileText::
 	done
 
 _DaycareGentlemanMonHasGrownText::
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text_start
 	line "hat sich toll "
 	cont "entwickelt!"
@@ -62,7 +62,7 @@ _DaycareGentlemanMonNeedsMoreTimeText::
 	text "Du bist schon"
 	line "wieder zurück?"
 	cont "@"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text " sollte"
 	cont "noch ein bißchen"
 	cont "bei mir bleiben."

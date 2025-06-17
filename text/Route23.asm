@@ -2,13 +2,13 @@ _Route23YouDontHaveTheBadgeYetText::
 	text "Du darfst nur"
 	line "mit dem"
 	cont "@"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text ""
 	cont "passieren!"
 
 	para "Du besitzt den"
 	line "@"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text " noch"
 	cont "nicht!"
 
@@ -22,14 +22,14 @@ _Route23OhThatIsTheBadgeText::
 	line "passieren, wenn"
 	cont "Du bereits den"
 	cont "@"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text ""
 	cont "besitzt!"
 
 	para "Wunderbar!"
 	line "Du trägst den"
 	cont "@"
-	text_ram wcd6d
+	text_ram wNameBuffer
 	text "!@"
 	text_end
 

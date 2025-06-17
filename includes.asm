@@ -1,4 +1,4 @@
-GEN_2_GRAPHICS EQU 1
+DEF GEN_2_GRAPHICS EQU 1
 
 INCLUDE "macros/asserts.asm"
 INCLUDE "macros/const.asm"
@@ -20,6 +20,7 @@ INCLUDE "macros/color.asm"
 INCLUDE "constants/charmap.asm"
 INCLUDE "constants/hardware_constants.asm"
 INCLUDE "constants/oam_constants.asm"
+INCLUDE "constants/ram_constants.asm"
 INCLUDE "constants/misc_constants.asm"
 INCLUDE "constants/gfx_constants.asm"
 INCLUDE "constants/input_constants.asm"

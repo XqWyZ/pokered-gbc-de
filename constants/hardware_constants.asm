@@ -2,19 +2,6 @@
 
 DEF GBC EQU $11
 
-; memory map
-DEF VRAM_Begin  EQU $8000
-DEF VRAM_End    EQU $a000
-DEF SRAM_Begin  EQU $a000
-DEF SRAM_End    EQU $c000
-DEF WRAM0_Begin EQU $c000
-DEF WRAM0_End   EQU $d000
-DEF WRAM1_Begin EQU $d000
-DEF WRAM1_End   EQU $e000
-; hardware registers $ff00-$ff80 (see below)
-DEF HRAM_Begin  EQU $ff80
-DEF HRAM_End    EQU $ffff
-
 ; MBC1
 DEF MBC1SRamEnable      EQU $0000
 DEF MBC1RomBank         EQU $2000
@@ -94,8 +81,14 @@ DEF rWave_d           EQU $ff3d
 DEF rWave_e           EQU $ff3e
 DEF rWave_f           EQU $ff3f
 DEF rLCDC             EQU $ff40 ; LCD Control (R/W)
-DEF rLCDC_ENABLE      EQU 7
-DEF rLCDC_ENABLE_MASK EQU 1 << rLCDC_ENABLE
+DEF rLCDC_BG_PRIORITY    EQU 0
+DEF rLCDC_SPRITES_ENABLE EQU 1
+DEF rLCDC_SPRITE_SIZE    EQU 2
+DEF rLCDC_BG_TILEMAP     EQU 3
+DEF rLCDC_TILE_DATA      EQU 4
+DEF rLCDC_WINDOW_ENABLE  EQU 5
+DEF rLCDC_WINDOW_TILEMAP EQU 6
+DEF rLCDC_ENABLE         EQU 7
 DEF rSTAT             EQU $ff41 ; LCDC Status (R/W)
 DEF rSCY              EQU $ff42 ; Scroll Y (R/W)
 DEF rSCX              EQU $ff43 ; Scroll X (R/W)
@@ -124,3 +117,8 @@ DEF rSVBK             EQU $ff70 ; CGB Mode Only - WRAM Bank
 DEF rPCM12            EQU $ff76 ; Channels 1 & 2 Amplitude (R)
 DEF rPCM34            EQU $ff77 ; Channels 3 & 4 Amplitude (R)
 DEF rIE               EQU $ffff ; Interrupt Enable (R/W)
+DEF rIE_VBLANK EQU 0
+DEF rIE_LCD    EQU 1
+DEF rIE_TIMER  EQU 2
+DEF rIE_SERIAL EQU 3
+DEF rIE_JOYPAD EQU 4

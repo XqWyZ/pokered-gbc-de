@@ -8,7 +8,6 @@ SoftReset_orig:: ; HAX: "SoftReset" label moved elsewhere (calls this after)
 Init::
 ;  Program init.
 
-DEF rLCDC_DEFAULT EQU %11100011
 ; * LCD enabled
 ; * Window tile map at $9C00
 ; * Window display enabled
@@ -17,6 +16,7 @@ DEF rLCDC_DEFAULT EQU %11100011
 ; * 8x8 OBJ size
 ; * OBJ display enabled
 ; * BG display enabled
+DEF rLCDC_DEFAULT EQU (1 << rLCDC_ENABLE) | (1 << rLCDC_WINDOW_TILEMAP) | (1 << rLCDC_WINDOW_ENABLE) | (1 << rLCDC_SPRITES_ENABLE) | (1 << rLCDC_BG_PRIORITY)
 
 	di
 
@@ -35,14 +35,14 @@ DEF rLCDC_DEFAULT EQU %11100011
 	ldh [rOBP0], a
 	ldh [rOBP1], a
 
-	ld a, rLCDC_ENABLE_MASK
+	ld a, 1 << rLCDC_ENABLE
 	ldh [rLCDC], a
 	call DisableLCD
 
 	ld sp, wStack
 
-	ld hl, WRAM0_Begin
-	ld bc, WRAM1_End - WRAM0_Begin
+	ld hl, STARTOF(WRAM0)
+	ld bc, SIZEOF(WRAM0)
 .loop
 	ld [hl], 0
 	inc hl
@@ -53,8 +53,8 @@ DEF rLCDC_DEFAULT EQU %11100011
 
 	call ClearVram
 
-	ld hl, HRAM_Begin
-	ld bc, HRAM_End - HRAM_Begin
+	ld hl, STARTOF(HRAM)
+	ld bc, SIZEOF(HRAM)
 	call FillMemory
 
 	call ClearSprites
@@ -119,8 +119,8 @@ DEF rLCDC_DEFAULT EQU %11100011
 	jp PrepareTitleScreen
 
 ClearVram::
-	ld hl, VRAM_Begin
-	ld bc, VRAM_End - VRAM_Begin
+	ld hl, STARTOF(VRAM)
+	ld bc, SIZEOF(VRAM)
 	xor a
 	jp FillMemory
 

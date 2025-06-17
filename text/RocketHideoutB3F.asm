@@ -17,7 +17,7 @@ _RocketHideoutB3FRocket1AfterBattleText::
 	cont "irgendwo..."
 	done
 
-_RocketHideout3BattleTxt::
+_RocketHideout3BattleText::
 	text "Wir hörten schon,"
 	line "daß Du im"
 	cont "Anmarsch bist!"

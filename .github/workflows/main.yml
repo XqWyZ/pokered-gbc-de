@@ -16,12 +16,14 @@ jobs:
         uses: actions/checkout@master
         with:
           path: rgbds
-          ref: v0.6.1
+          ref: v0.8.0
           repository: gbdev/rgbds
 
       - name: Install rgbds
         working-directory: rgbds
         run: |
+          sudo apt update
+          sudo apt -y install libpng-dev
           sudo make install
 
       - name: Remove rgbds
@@ -47,13 +49,6 @@ jobs:
             git diff-index HEAD --
             return 1
           fi
-
-      - name: Discord webhook
-        if: ${{ github.event_name == 'push' && github.repository_owner == 'pret' }}
-        env:
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: |
-          .github/webhook.sh
 
       - name: Checkout symbols
         if: ${{ github.event_name == 'push' && github.repository_owner == 'pret' }}
